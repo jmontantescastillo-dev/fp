@@ -1,0 +1,26 @@
+import json
+
+# Catálogo de libros con ISBN como clave
+biblioteca = {
+    "978-84-376-0494-7": {
+        "título": "Cien años de soledad",
+        "autor": ["Gabriel García Márquez"],
+        "géneros": ["Realismo mágico", "Novela histórica"]
+    },
+    "978-84-204-1625-5": {
+        "título": "Don Quijote de la Mancha",
+        "autor": ["Miguel de Cervantes Saavedra"],
+        "géneros": ["Novela de caballería", "Sátira"]
+    }
+}
+
+# ISBN que se desea consultar
+isbn_consultado = "978-84-376-0494-7"
+libro = biblioteca.get(isbn_consultado)
+
+# Mostrar la información con formato JSON legible
+if libro:
+    print(f"\n📚 Información del libro con ISBN {isbn_consultado}:\n")
+    print(json.dumps(libro, indent=4, ensure_ascii=False))
+else:
+    print(f"\n❌ No se encontró información para el ISBN {isbn_consultado}.")
